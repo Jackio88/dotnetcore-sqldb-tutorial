@@ -17,21 +17,17 @@ namespace DotNetCoreSqlDb.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
-
             modelBuilder.Entity("DotNetCoreSqlDb.Models.Todo", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
-
+                        .HasColumnType("datetime2");
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
+                        .HasColumnType("nvarchar(max)");
                     b.HasKey("ID");
-
                     b.ToTable("Todo");
                 });
 #pragma warning restore 612, 618
